@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --hue: 194;
+  --bg-color: hsla(var(--hue), 5%, 7%, 1);
+  --text-color: hsla(var(--hue), 40%, 98%, 1);
+  --primary-color: hsla(var(--hue), 100%, 63%, 1);
+  --controls-bg-color: hsla(var(--hue), 6%, 21%, 1);
+  --buttons-secondary-color: hsla(var(--hue), 40%, 98%, 1);
+
+  /*Define um minimo e máximo de tamanhç de fonte que vai usar*/
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position:absolute;
+  overflow: hidden;
+
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  appearance: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  display: grid;
+  height: 100vh;
+  place-content: center;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+.flex, #app {
+  display: flex;
+}
+
+#app {
+  gap: 20rem;
+
+  margin-bottom: 6rem;
+}
+
+#timer {
+  font-size: 12rem;
+  font-weight: 500;
+}
+
+#controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+#controls  {
+  gap: 4rem;
+}
+
+#controls button {
+  font-size: 4rem;
+  color: var(--text-color)
+}
+
+#sounds-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem; /* Defina o espaçamento que você desejar entre os botões */
+}
+
+#sounds-buttons button {
+  font-size: 6rem;
+  color: var(--text-color);
+  background-color: rgb(35, 35, 35);
+
+  padding: 1.6rem;
+  border-radius: 2rem;
+}
+
+#sounds-buttons button.sound-on {
+  background-color: var(--primary-color);
+}
+
+html.running .ph-play-circle,
+html:not(.running) .ph-pause-circle {
+  display: none;
+}
